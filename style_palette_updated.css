@@ -381,47 +381,7 @@ footer a:hover {
 }
 
 
-/* ==================================
-   11. АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ
-================================== */
 
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    #hero {
-        padding: 25px;
-        min-height: 220px;
-    }
-
-    #hero h1 {
-        font-size: 25px;
-    }
-
-    .advantages-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .audience-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .sections-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-container {
-        flex-direction: column;
-    }
-}
 
 @media (max-width: 480px) {
 
@@ -516,24 +476,6 @@ footer a:hover {
 #audience .audience-card p {
     font-size: 12px;
 }
-
-/* Планшеты */
-
-@media (max-width: 768px) {
-    #audience .audience-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-/* Телефоны */
-
-@media (max-width: 480px) {
-    #audience .audience-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-
 
 
 
@@ -728,4 +670,208 @@ select:focus-visible {
 /*ШРИФТ*/
 body {
     font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Исправление мобильной версии */
+@media screen and (max-width: 600px) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Блок 1.3 — Почему выбирают нас */
+    #advantages > div {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .advantage-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding: 20px 15px;
+    }
+
+    .advantage-card h3 {
+        font-size: 21px;
+        overflow-wrap: break-word;
+    }
+
+    .advantage-card p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Блок 1.4 — Кому подойдёт наш сайт */
+    #audience > div {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+    }
+
+    .audience-card {
+        width: 100%;
+        min-width: 0;
+        padding: 15px 10px;
+    }
+
+    .audience-card h3 {
+        font-size: 17px;
+        overflow-wrap: break-word;
+    }
+
+    /* Блок 1.5 — Быстрый переход */
+    .sections-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+    }
+
+    .section-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding: 15px 8px;
+        text-align: center;
+    }
+
+    .section-card h3 {
+        font-size: 16px;
+        line-height: 1.35;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .section-card img {
+        max-width: 100%;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    /* Заголовки и текст */
+    h1 {
+        font-size: 30px;
+        overflow-wrap: break-word;
+    }
+
+    h2 {
+        font-size: 25px;
+        line-height: 1.3;
+    }
+}
+
+
+/* Первый экран */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    width: 100%;
+    min-height: 430px;
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        120deg,
+        #436c98,
+        #d5d9f2
+    );
+
+    overflow: hidden;
+}
+
+/* Левая часть */
+.hero-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: white;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Кнопки */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 40px;
+    background: #b6d0de;
+    color: #243447;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Правая часть */
+.hero-image {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 18px;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-btn {
+        width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 280px;
+    }
 }
