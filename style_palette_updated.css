@@ -673,103 +673,6 @@ body {
 }
 
 
-/* Исправление мобильной версии */
-@media screen and (max-width: 600px) {
-
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    /* Блок 1.3 — Почему выбирают нас */
-    #advantages > div {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 15px;
-        width: 100%;
-    }
-
-    .advantage-card {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        padding: 20px 15px;
-    }
-
-    .advantage-card h3 {
-        font-size: 21px;
-        overflow-wrap: break-word;
-    }
-
-    .advantage-card p {
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    /* Блок 1.4 — Кому подойдёт наш сайт */
-    #audience > div {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        width: 100%;
-    }
-
-    .audience-card {
-        width: 100%;
-        min-width: 0;
-        padding: 15px 10px;
-    }
-
-    .audience-card h3 {
-        font-size: 17px;
-        overflow-wrap: break-word;
-    }
-
-    /* Блок 1.5 — Быстрый переход */
-    .sections-container {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        width: 100%;
-    }
-
-    .section-card {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        padding: 15px 8px;
-        text-align: center;
-    }
-
-    .section-card h3 {
-        font-size: 16px;
-        line-height: 1.35;
-        overflow-wrap: break-word;
-        word-break: normal;
-    }
-
-    .section-card img {
-        max-width: 100%;
-        height: 100px;
-        object-fit: contain;
-    }
-
-    /* Заголовки и текст */
-    h1 {
-        font-size: 30px;
-        overflow-wrap: break-word;
-    }
-
-    h2 {
-        font-size: 25px;
-        line-height: 1.3;
-    }
-}
-
 
 /* Первый экран */
 .hero {
@@ -832,20 +735,6 @@ body {
 }
 
 /* Правая часть */
-.hero-image {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    object-fit: contain;
-}
 
 @media (max-width: 768px) {
     .hero {
@@ -870,8 +759,72 @@ body {
     .hero-btn {
         width: 100%;
     }
+}
 
-    .hero-image img {
-        max-width: 280px;
+/* Изображение в первом экране */
+.hero-visual {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-visual img {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    max-height: 350px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Мобильная версия */
+@media screen and (max-width: 768px) {
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: auto;
+        padding: 25px 18px;
+        gap: 15px;
+    }
+
+    .hero-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        flex: none;
+    }
+
+    .hero-visual img {
+        width: 100%;
+        max-width: 230px;
+        max-height: 190px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-btn {
+        width: 100%;
+        max-width: 300px;
     }
 }
