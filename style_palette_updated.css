@@ -659,3 +659,29 @@ select:focus-visible {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+@media screen and (max-width: 600px) {
+    main > section:not(.hero) {
+        padding: 10px 12px;
+        margin: 12px 0;
+    }
+
+    .hero {
+        padding: 18px 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 23px;
+    }
+
+    .hero-visual img {
+        max-width: 180px;
+        max-height: 140px;
+    }
+
+    .advantage-card,
+    .audience-card,
+    .section-card {
+        padding: 10px;
+    }
+}
