@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виды компьютеров — Как выбрать компьютер</title>
+
+    <!-- Подключаем ту же таблицу стилей, что и на главной странице -->
+    <link rel="stylesheet" href="style_palette_updated.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Стили только для второй страницы -->
+    <style>
+        .page-intro {
+            width: calc(100% - 32px);
+            max-width: none;
+            margin: 28px auto;
+            padding: 38px 28px;
+            border-radius: 22px;
+            background: linear-gradient(120deg, var(--burgundy), var(--navy));
+            color: #fff;
+            text-align: center;
+        }
+
+        .page-intro h1 {
+            margin-bottom: 14px;
+            color: #fff;
+            font-size: clamp(27px, 4vw, 42px);
+        }
+
+        .page-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #fff;
+            font-size: 17px;
+        }
+
+        .device-section,
+        .comparison-section,
+        .recommendation-section {
+            width: calc(100% - 40px);
+            max-width: none;
+            margin: 30px auto;
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .device-card {
+            min-width: 0;
+            padding: 24px 20px;
+            border: 1px solid var(--light-blue);
+            border-radius: 18px;
+            background: var(--white);
+            box-shadow: 0 6px 18px rgba(36, 52, 71, .07);
+        }
+
+        .device-symbol {
+            display: grid;
+            place-items: center;
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 14px;
+            border-radius: 18px;
+            background: transparent;
+            font-size: 42px;
+        }
+
+        .device-card h2 {
+            margin-bottom: 16px;
+            text-align: center;
+            font-size: 21px;
+        }
+
+        .device-card h3 {
+            margin: 16px 0 6px;
+            color: var(--navy);
+            font-size: 15px;
+        }
+
+        .device-card p,
+        .device-card li {
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .device-card ul {
+            padding-left: 19px;
+        }
+
+        .device-card li {
+            margin-bottom: 5px;
+        }
+
+        .comparison-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--light-blue);
+            border-radius: 14px;
+            background: var(--white);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .comparison-table {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 13px 12px;
+            border-bottom: 1px solid var(--light-blue);
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            background: var(--navy);
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .stars {
+            color: var(--burgundy);
+            white-space: nowrap;
+            letter-spacing: 1px;
+            font-size: 17px;
+        }
+
+        .table-note {
+            margin-top: 10px;
+            color: var(--dark);
+            font-size: 12px;
+        }
+
+        .recommendation-box {
+            padding: 28px;
+            border-radius: 18px;
+            background: var(--burgundy);
+            color: #fff;
+        }
+
+        .recommendation-box h2 {
+            color: #fff;
+        }
+
+        .recommendation-box p {
+            margin: 0;
+            color: #fff;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .device-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .device-card:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                text-align: center;
+            }
+
+            .page-intro {
+                margin: 14px auto 22px;
+                padding: 26px 18px;
+            }
+
+            .page-intro p {
+                font-size: 15px;
+            }
+
+            .device-section,
+            .comparison-section,
+            .recommendation-section {
+                width: calc(100% - 24px);
+                margin: 20px auto;
+            }
+
+            .device-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .device-card:last-child {
+                grid-column: auto;
+            }
+
+            .device-card {
+                padding: 20px 17px;
+            }
+
+            .recommendation-box {
+                padding: 22px 18px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 11px 9px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Как выбрать компьютер</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="components.html">Комплектующие</a></li>
+                <li><a href="tasks.html">Подбор по задачам</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- БЛОК 2.1: ЗАГОЛОВОК -->
+        <section class="page-intro">
+            <h1>Какой тип компьютера выбрать?</h1>
+            <p>Каждый тип устройства имеет свои особенности. Выбери тот, который лучше всего подходит под твои задачи и образ жизни.</p>
+        </section>
+
+        <!-- БЛОК 2.2: КАРТОЧКИ УСТРОЙСТВ -->
+        <section class="device-section">
+            <h1>Три основных типа компьютеров</h1>
+
+            <div class="device-grid">
+                <article class="device-card">
+                    <div class="device-symbol" aria-hidden="true"><img src="images/14.png" alt="Стационарный ПК"></div>
+                    <h2>Стационарный ПК</h2>
+
+                    <h3>Что это?</h3>
+                    <p>Системный блок и отдельные монитор, клавиатура и мышь.</p>
+
+                    <h3>Плюсы</h3>
+                    <ul>
+                        <li>Высокая производительность за свои деньги.</li>
+                        <li>Можно заменить практически любой компонент.</li>
+                        <li>Удобно ремонтировать и улучшать.</li>
+                        <li>Обычно лучше охлаждается под нагрузкой.</li>
+                    </ul>
+
+                    <h3>Минусы</h3>
+                    <ul>
+                        <li>Нельзя удобно переносить с места на место.</li>
+                        <li>Занимает достаточно много пространства.</li>
+                        <li>Монитор и периферию часто нужно покупать отдельно.</li>
+                    </ul>
+
+                    <h3>Кому подойдёт?</h3>
+                    <p>Геймерам, монтажёрам, программистам и дизайнерам — всем, кому важны мощность и возможность апгрейда.</p>
+                </article>
+
+                <article class="device-card">
+                    <div class="device-symbol" aria-hidden="true"><img src="images/9.png" alt="Ноутбук"></div>
+                    <h2>Ноутбук</h2>
+
+                    <h3>Что это?</h3>
+                    <p>Портативный компьютер «всё в одном» со встроенными экраном, клавиатурой и аккумулятором.</p>
+
+                    <h3>Плюсы</h3>
+                    <ul>
+                        <li>Можно брать с собой.</li>
+                        <li>Не занимает много места на столе.</li>
+                        <li>Может работать без розетки.</li>
+                    </ul>
+
+                    <h3>Минусы</h3>
+                    <ul>
+                        <li>За ту же цену часто уступает стационарному ПК в мощности.</li>
+                        <li>Возможности апгрейда ограничены.</li>
+                        <li>Под высокой нагрузкой может нагреваться и шуметь.</li>
+                        <li>Ремонт обычно сложнее.</li>
+                    </ul>
+
+                    <h3>Кому подойдёт?</h3>
+                    <p>Студентам, офисным работникам и тем, кто часто путешествует или работает в разных местах.</p>
+                </article>
+
+                <article class="device-card">
+                    <div class="device-symbol" aria-hidden="true"><img src="images/13.png" alt="Моноблок"></div>
+                    <h2>Моноблок</h2>
+
+                    <h3>Что это?</h3>
+                    <p>Компьютер, у которого основные компоненты системного блока размещены внутри корпуса монитора.</p>
+
+                    <h3>Плюсы</h3>
+                    <ul>
+                        <li>Занимает мало места.</li>
+                        <li>Аккуратно выглядит и хорошо вписывается в интерьер.</li>
+                        <li>Обычно меньше проводов.</li>
+                        <li>Часто работает достаточно тихо при обычных задачах.</li>
+                    </ul>
+
+                    <h3>Минусы</h3>
+                    <ul>
+                        <li>За ту же цену часто уступает стационарному ПК в мощности.</li>
+                        <li>Возможности апгрейда обычно ограничены.</li>
+                        <li>Ремонт может быть сложным и дорогим.</li>
+                    </ul>
+
+                    <h3>Кому подойдёт?</h3>
+                    <p>Для дома и офиса, а также для несложных дизайнерских задач — тем, кому важны компактность и внешний вид.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- БЛОК 2.3: СРАВНЕНИЕ -->
+        <section class="comparison-section">
+            <h1>Сравнение типов компьютеров</h1>
+            <p>Оценки условные: 1 звезда — низкий показатель, 5 звёзд — высокий. Для критерия «цена за мощность» больше звёзд означает более выгодное соотношение.</p>
+
+            <div class="comparison-wrap">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Критерий</th>
+                            <th>Стационарный ПК</th>
+                            <th>Ноутбук</th>
+                            <th>Моноблок</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Производительность</td>
+                            <td><span class="stars" aria-label="5 из 5">★★★★★</span></td>
+                            <td><span class="stars" aria-label="3 из 5">★★★☆☆</span></td>
+                            <td><span class="stars" aria-label="4 из 5">★★★★☆</span></td>
+                        </tr>
+                        <tr>
+                            <td>Мобильность</td>
+                            <td><span class="stars" aria-label="0 из 5">☆☆☆☆☆</span></td>
+                            <td><span class="stars" aria-label="5 из 5">★★★★★</span></td>
+                            <td><span class="stars" aria-label="2 из 5">★★☆☆☆</span></td>
+                        </tr>
+                        <tr>
+                            <td>Возможность апгрейда</td>
+                            <td><span class="stars" aria-label="5 из 5">★★★★★</span></td>
+                            <td><span class="stars" aria-label="2 из 5">★★☆☆☆</span></td>
+                            <td><span class="stars" aria-label="1 из 5">★☆☆☆☆</span></td>
+                        </tr>
+                        <tr>
+                            <td>Цена за мощность</td>
+                            <td><span class="stars" aria-label="5 из 5">★★★★★</span></td>
+                            <td><span class="stars" aria-label="3 из 5">★★★☆☆</span></td>
+                            <td><span class="stars" aria-label="2 из 5">★★☆☆☆</span></td>
+                        </tr>
+                        <tr>
+                            <td>Компактность</td>
+                            <td><span class="stars" aria-label="2 из 5">★★☆☆☆</span></td>
+                            <td><span class="stars" aria-label="5 из 5">★★★★★</span></td>
+                            <td><span class="stars" aria-label="4 из 5">★★★★☆</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ремонтопригодность</td>
+                            <td><span class="stars" aria-label="5 из 5">★★★★★</span></td>
+                            <td><span class="stars" aria-label="2 из 5">★★☆☆☆</span></td>
+                            <td><span class="stars" aria-label="1 из 5">★☆☆☆☆</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">Важно: реальные характеристики зависят от конкретной модели и её комплектации.</p>
+        </section>
+
+        <!-- БЛОК 2.4: ИТОГОВАЯ РЕКОМЕНДАЦИЯ -->
+        <section class="recommendation-section">
+            <div class="recommendation-box">
+                <h2>Какой компьютер выбрать?</h2>
+                <p>Если нужна <strong>максимальная мощность и возможность апгрейда</strong> — выбирай стационарный ПК. Если важна <strong>мобильность и работа в дороге</strong> — бери ноутбук. Если нужны <strong>компактность, тишина и красивый внешний вид</strong> — подойдёт моноблок. Определи главное для себя — и тип устройства станет очевидным.</p>
+            </div>
+            <a class="back-link" href="index.html">← Вернуться на главную</a>
+        </section>
+    </main>
+
+    <footer id="contacts">
+
+        <div class="footer-content">
+
+            <div class="footer-info">
+                <h2>ПК-Помощник</h2>
+                <p>Твой путевoдитель в мире компьютерной техники.</p>
+            </div>
+
+            <div class="footer-navigation">
+                <h3>Навигация</h3>
+
+                <a href="#hero">Главная</a>
+                <a href="#advantages">Почему мы</a>
+                <a href="#audience">Кому подойдёт сайт</a>
+                <a href="#sections">Разделы сайта</a>
+                <a href="#selection">Подборщик</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 ПК-Помощник. Учебный проект.</p>
+            <p>Автор: Горбатко Мария</p>
+        </div>
+
+    </footer>
+</body>
+</html>

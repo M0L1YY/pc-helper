@@ -124,7 +124,7 @@ section p {
    В HTML используется class="hero", поэтому здесь .hero, а не #hero. */
 .hero {
     width: calc(100% - 24px);
-    max-width: 1500px;
+    max-width: none;
     min-height: 390px;
     margin: 12px auto 28px;
     padding: 38px 5%;
@@ -190,10 +190,10 @@ section p {
 }
 
 .hero-visual {
-    flex: 1 1 45%;
+    flex: 0 0 40%;
     min-width: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -417,9 +417,20 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-info {
+    width: 100%;
+}
+
+.footer-navigation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 footer h2,
@@ -685,3 +696,26 @@ select:focus-visible {
         padding: 10px;
     }
 }
+
+
+/* Блоки 1.2 и 1.3 — отключаем реакции на наведение */
+#advantages .advantage-card,
+#audience .audience-card {
+    transition: none !important;
+    animation: none !important;
+}
+
+#advantages .advantage-card:hover,
+#advantages .advantage-card:focus,
+#advantages .advantage-card:active,
+#audience .audience-card:hover,
+#audience .audience-card:focus,
+#audience .audience-card:active {
+    transform: none !important;
+    background: var(--white) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    color: inherit !important;
+}
+
